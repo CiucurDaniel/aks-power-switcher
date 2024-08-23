@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Start AKS Cluster
-        uses: CiucurDaniel/aks-power-switcher@v1
+        uses: CiucurDaniel/aks-power-switcher@main
         with:
           action: 'start'
         env:
