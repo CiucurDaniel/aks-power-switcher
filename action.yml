@@ -1,0 +1,23 @@
+# action.yml
+name: 'AKS Power Switcher'
+description: |
+  Start or stop an AKS cluster.
+  
+  **Required Environment Variables:**
+  - `ARM_CLIENT_ID`: The Azure Service Principal Client ID.
+  - `ARM_CLIENT_SECRET`: The Azure Service Principal Client Secret.
+  - `ARM_TENANT_ID`: The Azure Tenant ID.
+  - `RESOURCE_GROUP`: The resource group where the AKS cluster is located.
+  - `CLUSTER_NAME`: The name of the AKS cluster to start or stop.
+  
+inputs:
+  action:
+    description: 'The action to perform on the cluster. Can be start or stop.'
+    required: true
+    default: 'start'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.action }}
